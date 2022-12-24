@@ -97,10 +97,11 @@
            }
            document.title = "Demek baklava isten ha";
            setTimeout(function(){
+            element.classList.remove("visible");
             document.title = "Nah sana garın gası";
             }, 1200);
            audio.onended = function() {
-            element.classList.remove("visible");
+            // element.classList.remove("visible");
             elementlast.classList.remove("visible");
             document.title = "Anasayfa";
             img.setAttribute("onclick", "myFunction()");
