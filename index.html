@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Anasayfa</title>
     <style>
+        html {cursor: url("./favicon.ico"), default;}
         * {
             margin: 0px;
             padding: 0px;
@@ -89,12 +91,21 @@
 
            const audio = new Audio("sound.mp3");
            audio.play();
+           var img = document.getElementById("img");
+           if (img.onclick) {
+            img.removeAttribute("onclick");
+           }
+           document.title = "Demek baklava isten ha";
+           setTimeout(function(){
+            document.title = "Nah sana garın gası";
+            }, 1200);
            audio.onended = function() {
-            // console.log("test");
             element.classList.remove("visible");
             elementlast.classList.remove("visible");
-           }
+            document.title = "Anasayfa";
+            img.setAttribute("onclick", "myFunction()");
         }
+    }
     </script>
 </body>
 </html>
