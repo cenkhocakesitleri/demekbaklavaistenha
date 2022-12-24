@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        h1 {
+            padding: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            visibility: hidden;
+        }
+        .visible {
+            visibility: visible;
+        }
+        img {
+            margin: 0px auto;
+            padding: 0px;
+            display: block;
+            border-radius: 10px;
+        }
+        @media screen and (max-width: 1919px) {
+        img {
+            width: 30em;
+        }
+        @media screen and (max-width: 1200px) {
+        img {
+            width: 30em;
+        }
+        }
+        @media screen and (max-width: 800px) {
+        img {
+            width: 20em;
+        }
+        }
+
+        @media screen and (max-width: 400px) {
+        img {
+            width: 15em;
+        }
+        }
+        @media screen and (max-width: 250px) {
+        img {
+            width: 10em;
+        }
+        }
+    }
+    </style>
+</head>
+<body>
+    <h1 align="center" id="h1">Demek baklava isten ha</h1>
+    <div class="img"><img id="img" onclick="myFunction()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.png/250px-Baklava%281%29.png" alt="" srcset=""></div>
+    <h1 align="center" id="h1-last">Nah sana garın gası</h1>
+
+    <script>
+        function myFunction() {
+           var element = document.getElementById("h1");
+           element.classList.add("visible");
+           var elementlast = document.getElementById("h1-last");
+           elementlast.classList.add("visible");
+
+           const audio = new Audio("sound.mp3");
+           audio.play();
+           audio.onended = function() {
+            // console.log("test");
+            element.classList.remove("visible");
+            elementlast.classList.remove("visible");
+           }
+        }
+    </script>
+</body>
+</html>
