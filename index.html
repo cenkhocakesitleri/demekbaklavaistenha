@@ -87,8 +87,6 @@
            var element = document.getElementById("h1");
            element.classList.add("visible");
            var elementlast = document.getElementById("h1-last");
-           
-
            const audio = new Audio("sound.mp3");
            audio.play();
            var img = document.getElementById("img");
@@ -101,9 +99,7 @@
             elementlast.classList.add("visible");
             document.title = "Nah sana garın gası";
             }, 1200);
-            
            audio.onended = function() {
-            // element.classList.remove("visible");
             elementlast.classList.remove("visible");
             document.title = "Anasayfa";
             img.setAttribute("onclick", "myFunction()");
