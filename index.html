@@ -87,7 +87,7 @@
            var element = document.getElementById("h1");
            element.classList.add("visible");
            var elementlast = document.getElementById("h1-last");
-           elementlast.classList.add("visible");
+           
 
            const audio = new Audio("sound.mp3");
            audio.play();
@@ -98,8 +98,10 @@
            document.title = "Demek baklava isten ha";
            setTimeout(function(){
             element.classList.remove("visible");
+            elementlast.classList.add("visible");
             document.title = "Nah sana garın gası";
             }, 1200);
+            
            audio.onended = function() {
             // element.classList.remove("visible");
             elementlast.classList.remove("visible");
