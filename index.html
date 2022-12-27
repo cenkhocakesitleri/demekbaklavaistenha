@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Anasayfa</title>
     <style>
+        body {
+            transition: 400ms;
+        }
         html {cursor: url("./favicon.ico"), default;}
         * {
             margin: 0px;
@@ -26,6 +29,30 @@
             padding: 0px;
             display: block;
             border-radius: 10px;
+        }
+        .dark-mode {
+        background-color: black;
+        color: white;
+        transition: 400ms;
+        }
+        button {
+            border: 0px;
+            background: transparent;
+            width: 32px;
+            height: 32px;
+            margin: 1rem;
+        }
+        .dark {
+            background-image: url(./dark.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: 400ms;
+        }
+        .sun {
+            background-image: url(./sun.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: 400ms;
         }
         @media screen and (min-width: 1920px) {
         img {
@@ -78,6 +105,7 @@
     </style>
 </head>
 <body>
+    <button id="button" onclick="toggleDarkMode()"></button>
     <h1 align="center" id="h1">Demek baklava isten ha</h1>
     <div class="img"><img id="img" onclick="myFunction()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.png/250px-Baklava%281%29.png" alt="" srcset=""></div>
     <h1 align="center" id="h1-last">Nah sana garın gası</h1>
@@ -105,6 +133,20 @@
             img.setAttribute("onclick", "myFunction()");
         }
     }
+        var button = document.getElementById("button");
+        button.classList.add("dark");
+
+        function toggleDarkMode() {
+        var body = document.body;
+        body.classList.toggle("dark-mode");
+        if (body.classList.contains("dark-mode")) {
+            button.classList.replace("dark","sun");
+        }
+        else {
+            button.classList.replace("sun","dark");
+        }
+    }
+
     </script>
 </body>
 </html>
