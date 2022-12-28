@@ -204,6 +204,8 @@ document.addEventListener('DOMContentLoaded', () =>
     setVisible('.page', true);
     setVisible('#loading', false);
   }));
+
+  document.getElementById('img').ondragstart = function() { return false; };
     </script>
 </body>
 </html>
