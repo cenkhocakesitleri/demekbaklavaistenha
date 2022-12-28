@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
     <title>Anasayfa</title>
     <style>
         body {
             transition: 400ms;
+            background: #FFF url("https://i.imgur.com/KheAuef.png") top left repeat-x;
+            font-family: 'Alex Brush', cursive !important;
         }
         html {cursor: url("./favicon.ico"), default;}
         * {
@@ -102,14 +106,32 @@
         font-size: 1em;
             }
         }
+
+        .page    { display: none; padding: 0 0.5em; }
+
+        #loading {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(192, 192, 192, 0.5);
+        background-image: url("https://i.stack.imgur.com/MnyxU.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+        }
     </style>
 </head>
 <body>
+    <div class="page">
     <button id="button" onclick="toggleDarkMode()"></button>
     <h1 align="center" id="h1">Demek baklava isten ha</h1>
     <div class="img"><img id="img" onclick="myFunction()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Baklava%281%29.png/250px-Baklava%281%29.png" alt="" srcset=""></div>
     <h1 align="center" id="h1-last">Nah sana garın gası</h1>
-
+    </div>
+    <div id="loading"></div>
     <script>
         function myFunction() {
            var element = document.getElementById("h1");
@@ -147,6 +169,41 @@
         }
     }
 
+//     function onReady(callback) {
+//   var intervalId = window.setInterval(function() {
+//     if (document.getElementsByTagName('body')[0] !== undefined) {
+//       window.clearInterval(intervalId);
+//       callback.call(this);
+//     }
+//   }, 1000);
+// }
+
+// function setVisible(selector, visible) {
+//   document.querySelector(selector).style.display = visible ? 'block' : 'none';
+// }
+
+// onReady(function() {
+//   setVisible('.page', true);
+//   setVisible('#loading', false);
+// });
+
+const wait = (delay = 0) =>
+  new Promise(resolve => setTimeout(resolve, delay));
+
+const setVisible = (elementOrSelector, visible) => 
+  (typeof elementOrSelector === 'string'
+    ? document.querySelector(elementOrSelector)
+    : elementOrSelector
+  ).style.display = visible ? 'block' : 'none';
+
+setVisible('.page', false);
+setVisible('#loading', true);
+
+document.addEventListener('DOMContentLoaded', () =>
+  wait(1000).then(() => {
+    setVisible('.page', true);
+    setVisible('#loading', false);
+  }));
     </script>
 </body>
 </html>
